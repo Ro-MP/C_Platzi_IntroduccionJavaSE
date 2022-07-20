@@ -11,7 +11,6 @@ public class Funciones {
         System.out.println("PESOS A DOLARES: " + convertToDolar(100, "MXN"));
         System.out.println("COP A DOLARES: " + convertToDolar(10000, "COP"));
 
-        Math
     }
 
     public static double circleArea(double r){
