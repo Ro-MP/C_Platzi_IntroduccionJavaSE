@@ -6,7 +6,7 @@ public class Bucles {
 
     public static void main(String[] args) {
 
-        // DO - WHILE
+        // --  DO - WHILE
         System.out.println("---  Do-While  ---");
         int response = 0;
         do {
@@ -32,9 +32,10 @@ public class Bucles {
                     System.out.println("Selecciona una opción correcta");
             }
         } while (response != 0);
+        System.out.println(" ");
 
 
-        // WHILE
+        //  -- WHILE
         System.out.println("---  While  ---");
         turnOnOffLight();
 
@@ -42,6 +43,13 @@ public class Bucles {
         while (isTurnInLight && i<=10){
             printSos();
             i++;
+        }
+
+
+        //  -- FOR
+        System.out.println("---  FOR  ---");
+        for (int j = 0; j <10 ; j++) {
+            printSos();
         }
 
     }
@@ -53,21 +61,6 @@ public class Bucles {
     public static boolean turnOnOffLight(){
 
         isTurnInLight = (isTurnInLight)?false:true;
-
-        /*
-        otra opcion con !
-        esTurnInLight = !isTurnInLight;
-         */
-
-        /*
-        otra opcion con if else
-
-        if (isTurnInLight){
-            isTurnInLight = false;
-        } else {
-            isTurnInLight = true;
-        }
-         */
 
         return isTurnInLight;
     }
