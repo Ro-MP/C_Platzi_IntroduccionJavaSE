@@ -1,34 +1,31 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor {
-    private static int idSiguiente = 1;
-    int id;  // Autoincrement
-    String name;
-    String email;
+public class Doctor extends User {
+    //private static int idSiguiente = 1;
+    //int id;  // Autoincrement
     String speciality;
-
-
-    static ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
+    public static ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
 
     // Comportamientos
 
-    Doctor(){
-        System.out.println("Construyendo el objeto de Doctor");
-        asignId();
+    public Doctor(String name, String email){
+        super(name, email);
+        System.out.println("Construyendo el objeto de model.Doctor");
+        //asignId();
     }
 
-    Doctor(String name, String speciality){
-        this.name = name;
-        this.speciality = speciality;
-        asignId();
+    public Doctor(String name, String email, String speciality){
+        super(name, email);
+        this.speciality =speciality;
+        //asignId();
     }
 
-    public void showName(){
-        System.out.println(name);
-        System.out.println();
-    }
 
+
+    /*  Asignación automática del ID
     public void showId(){
         System.out.println("ID: " + this.id);
     }
@@ -37,6 +34,8 @@ public class Doctor {
         this.id = idSiguiente;
         idSiguiente++;
     }
+
+     */
 
 
      /*
@@ -54,10 +53,15 @@ public class Doctor {
         }
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "\nSpeciality: " + speciality + "\nAvailable: " + availableAppointments.toString();
+    }
+
     /*
-        Clase estatica anidada
-        Las citas se generas como objetos de esta clase interna
-     */
+            Clase estatica anidada
+            Las citas se generas como objetos de esta clase interna
+         */
     public static class AvailableAppointment {
         private int id;
         private Date date;
@@ -90,6 +94,11 @@ public class Doctor {
 
         public void setTime(String time) {
             this.time = time;
+        }
+
+        @Override
+        public String toString() {
+            return "Available Appointments\nDate: " + date + "\nTime: " + time;
         }
     }
 }

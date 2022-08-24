@@ -1,31 +1,28 @@
-import javax.print.Doc;
+import model.Doctor;
+import model.Patient;
 
 import java.util.Date;
-
-import static ui.uiMenu.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        /*
+
         // Declarando Objeto
         Doctor myDoctor;
         // Instanciando objeto
-        myDoctor = new Doctor();
-        // Asignando nombre a mi doctor
-        myDoctor.name = "Alealejandro";
+        myDoctor = new Doctor("Alealejandro", "a@.com");
         // Llamando metodo showName
         myDoctor.showName();
 
         // Instanciando objeto con metodo constructor con parametro name
-        Doctor myDoctor2 = new Doctor("Roberto");
+        Doctor myDoctor2 = new Doctor("Roberto","r@.com");
 
-        myDoctor.showId();
-        myDoctor2.showId();     */
+        //myDoctor.showId();
+        //myDoctor2.showId();
 
-        /*showMenu();
+        /*showMenu();   */
 
-        Patient patient = new Patient("Alejandra", "alejandra@gmail.com");      */
+        Patient patient = new Patient("Alejandra", "alejandra@gmail.com");
 
         /* Ejemplo de almacenamiento de direccion en STACK y objeto en HEAP
           patient2 se le asigna direccion de patient
@@ -34,7 +31,7 @@ public class Main {
           */
         /*
         System.out.println(patient);
-        Patient patient2 = patient;
+        model.Patient patient2 = patient;
         System.out.println(patient2);
         System.out.println(patient.getName());
         System.out.println(patient2.getName());
@@ -46,6 +43,9 @@ public class Main {
         Doctor.addAvailableAppointment(new Date(), "12:50");
         Doctor.addAvailableAppointment(new Date(), "18:30");
         Doctor.printAvailabilityAppointment();
+        System.out.println(patient.toString());
+        System.out.println();
+        System.out.println(Doctor.availableAppointments.toString());
     }
 
 

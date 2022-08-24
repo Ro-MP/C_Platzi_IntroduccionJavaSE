@@ -5,7 +5,7 @@ public class enumerations {
         ALEGRIA("Joy", "Freude"),
         TRISTEZA("Sadness", "Traurigkeit");
 
-        private String english, deutch;
+        final private String english, deutch;
         private Palabras(String english, String deutch){
             this.english = english;
             this.deutch = deutch;
@@ -21,6 +21,10 @@ public class enumerations {
     }
 }
 
+enum Dias {
+    LUNES, MARTES, MIERCOLES, JUEVE, VIERNES, SABADO, DOMINGO;
+}
+
 
 class PrincipalEnumerations {
     public static void main(String[] args) {
@@ -28,6 +32,9 @@ class PrincipalEnumerations {
         System.out.println(enumerations.Palabras.ALEGRIA);
         System.out.println(enumerations.Palabras.ALEGRIA.getEnglish());
         System.out.println(enumerations.Palabras.ALEGRIA.getDeutch());
+
+        System.out.println();
+        System.out.println(Dias.LUNES);
 
     }
 }
