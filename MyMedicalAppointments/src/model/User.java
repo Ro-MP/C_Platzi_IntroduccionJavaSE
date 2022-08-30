@@ -1,13 +1,13 @@
 package model;
 
-public class User {
+public abstract class User {
     int id;
     private String name;
     private String email;
     private String address;
     private String phoneNumber;
 
-    User (String name, String email){
+    public User (String name, String email){
         this.name = name;
         this.email = email;
     }
@@ -51,4 +51,7 @@ public class User {
                 "\n\t phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
+
+    public abstract void showDataUser();
+
 }

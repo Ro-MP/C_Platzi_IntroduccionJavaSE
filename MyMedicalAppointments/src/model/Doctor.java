@@ -1,5 +1,7 @@
 package model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,9 +15,14 @@ public class Doctor extends User {
 
     public Doctor(String name, String email){
         super(name, email);
-        System.out.println("Construyendo el objeto de model.Doctor");
+        //System.out.println("Construyendo el objeto de model.Doctor: " + name);
         //asignId();
     }
+
+    public ArrayList<AvailableAppointment> getAvailableAppointments() {
+        return availableAppointments;
+    }
+
 
     public Doctor(String name, String email, String speciality){
         super(name, email);
@@ -23,9 +30,15 @@ public class Doctor extends User {
         //asignId();
     }
 
+    public String getSpeciality() {
+        return speciality;
+    }
 
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
 
-    /*  Asignación automática del ID
+/*  Asignación automática del ID
     public void showId(){
         System.out.println("ID: " + this.id);
     }
@@ -42,7 +55,8 @@ public class Doctor extends User {
         Con las siguientes dos metodos se agregan citas o se imprimen las ya existentes.
         Se pueden mandar llamar desde Main, sin necesidad de instanciar un objeto.
       */
-    public static void addAvailableAppointment(Date date, String time) {
+    public static void addAvailableAppointment(String date, String time) {
+
         availableAppointments.add(new AvailableAppointment(date, time));
     }
     public static void printAvailabilityAppointment(){
@@ -58,6 +72,13 @@ public class Doctor extends User {
         return super.toString() + "\nSpeciality: " + speciality + "\nAvailable: " + availableAppointments.toString();
     }
 
+    @Override
+    public void showDataUser() {
+        System.out.println("Hospital: Cruz Roja");
+        System.out.println("Departamento: Pediatria");
+        System.out.println();
+    }
+
     /*
             Clase estatica anidada
             Las citas se generas como objetos de esta clase interna
@@ -66,9 +87,14 @@ public class Doctor extends User {
         private int id;
         private Date date;
         private String time;
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
-        AvailableAppointment(Date date, String time){
-            this.date = date;
+        AvailableAppointment(String date, String time){
+            try {
+                this.date = format.parse(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             this.time = time;
         }
 
@@ -80,8 +106,11 @@ public class Doctor extends User {
             this.id = id;
         }
 
-        public Date getDate() {
+        public Date getDate(String DATE) {
             return date;
+        }
+        public String getDate() {
+            return format.format(date);
         }
 
         public void setDate(Date date) {
